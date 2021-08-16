@@ -24,7 +24,7 @@ class UserController extends Controller
 
         ];
 
-        User::create($data);
+         User::create($data);
 
         return 'Created Successfully!';
     }
@@ -35,16 +35,41 @@ class UserController extends Controller
     }
 
     public function delete($id){
-        $user = User::findorfail($id);
+        $user = User::findOrfail($id);
         $user->delete();
         return 'Deleted Successfully!';
     }
 
     public function edit($id){
-        $user = User::findorfail($id);
+        $user = User::findOrfail($id);
         $user->name = 'Nafian';
         $user->email = 'nafian@gmail.com';
         $user->save();
         return 'Edited Successfully!';
     }
+//Testign function here....
+
+    public function about_create(){
+        return view ('test.test_post');
+    }
+    public function store(){
+        return 'post successfully!';
+    }
+
+    public function update(){
+        return 'update successfully!';
+    }
+
+    public function update_name(){
+        return 'Name has been Updated';
+    }
+    public function delete_user(){
+        return 'Name has been deleted';
+    }
+
+    public function prefix_index(){
+        return 'This is Group prefix';
+    }
 }
+
+
