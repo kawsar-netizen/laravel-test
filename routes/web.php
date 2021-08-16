@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\CustomerController;
 
 
 
@@ -47,4 +47,11 @@ Route::delete('user_delete',[UserController::class,'delete_user']);
 Route::prefix('admin')->group(function(){
     
     Route::get('prefix',[UserController::class,'prefix_index']);
+});
+
+//Customer Route here... 
+
+Route::prefix('customer')->group(function(){
+    Route::get('create_customer',[CustomerController::class,'create']);
+    Route::get('customers',[CustomerController::class,'index']);
 });
