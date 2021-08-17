@@ -35,11 +35,18 @@ class CustomerController extends Controller
     //             ->get();
 
     // dd($customer);
-    $customer = DB::table('customers')
-            ->select('customers.name','customers.email','customers.balance','invoices.amount')
-            ->rightjoin('invoices','customers.id','=','invoices.customer_id')
+    // $customer = DB::table('customers')
+    //         ->select('customers.name','customers.email','customers.balance','invoices.amount')
+    //         ->rightjoin('invoices','customers.id','=','invoices.customer_id')
+    //         ->get();
+    //     dd($customer);
+
+        $customer = DB::table('customers')
+            ->orderBy('id','desc')
             ->get();
         dd($customer);
+
+
      }
 
 }
