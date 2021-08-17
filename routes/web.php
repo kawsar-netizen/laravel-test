@@ -6,8 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
-
-
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AddressController;
 
 
 Route::get('/', function () {
@@ -55,3 +55,23 @@ Route::prefix('customer')->group(function(){
     Route::get('create_customer',[CustomerController::class,'create']);
     Route::get('customers',[CustomerController::class,'index']);
 });
+
+
+//Post Route here....
+ Route::prefix('post')->group(function(){
+    Route::get('create_user',[PostController::class,'create']);
+    Route::get('create_post',[PostController::class,'store']);
+    Route::get('get_posts',[PostController::class,'index']);
+    Route::get('add_post',[PostController::class,'addpost']);
+ });
+ 
+ //Relation Route here... 
+ Route::get('one-to-one',[UserController::class,'index']);
+
+ Route::get('one-to-one-invers',[AddressController::class,'index']);
+
+ Route::get('one-to-many',[UserController::class,'index_many']);
+
+ Route::get('one-to-many-invers',[PostController::class,'index_many']);
+
+ Route::get('many-to-many',[PostController::class,'manytomany']);

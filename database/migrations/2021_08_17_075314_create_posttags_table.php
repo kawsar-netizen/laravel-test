@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCustomersTable extends Migration
+class CreatePosttagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateCustomersTable extends Migration
      */
     public function up()
     {
-        Schema::create('customers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name' , 100);
-            $table->string('email');
-            $table->string('address');
-            $table->double('balance');
-            $table->timestamps();
+        Schema::create('posttags', function (Blueprint $table) {
+            $table->string('post_id');
+            $table->string('tag_id');
         });
     }
 
@@ -30,6 +26,6 @@ class CreateCustomersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('customers');
+        Schema::dropIfExists('posttags');
     }
 }

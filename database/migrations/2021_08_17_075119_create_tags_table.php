@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEmployessTable extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateEmployessTable extends Migration
      */
     public function up()
     {
-        Schema::create('employess', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100);
-            $table->string('email',100);
-            $table->double('salary');
-            $table->date('dob');
-            $table->integer('family_members');
-            $table->text('description');
+            $table->string('title');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateEmployessTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employess');
+        Schema::dropIfExists('tags');
     }
 }

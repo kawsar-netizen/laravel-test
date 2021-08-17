@@ -9,10 +9,10 @@ class UserController extends Controller
 {
 
 
-    public function index(){
-        $users = User::all();
-        return $users;
-    }
+    // public function index(){
+    //     $users = User::all();
+    //     return $users;
+    // }
 
 
     public function create(){
@@ -69,6 +69,19 @@ class UserController extends Controller
 
     public function prefix_index(){
         return 'This is Group prefix';
+    }
+
+
+    //Relation function here...
+    public function index(){
+        $user = User::findOrFail(1);
+        dd($user->address);
+    }
+
+
+    public function index_many(){
+        $user = User::findOrFail(1);
+        dd($user->posts);
     }
 }
 
