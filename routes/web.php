@@ -1,13 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+// use App\Http\Controllers\frontend\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\TestController;
+use App\Http\Controllers\RequestController;
+use App\Http\Controllers\SessionController;
 
 
 Route::get('/', function () {
@@ -75,3 +78,33 @@ Route::prefix('customer')->group(function(){
  Route::get('one-to-many-invers',[PostController::class,'index_many']);
 
  Route::get('many-to-many',[PostController::class,'manytomany']);
+
+
+ //Frontend Tamples coding//
+
+Route::prefix('frontend')->group(function(){
+    Route::get('user',[UserController::class,'index']);
+});
+
+
+//Testing Route for Middleware Here.... 
+Route::middleware('test')->group(function(){
+
+    Route::get('one',[TestController::class,'one_index']);
+
+    Route::get('two',[TestController::class,'two_index']);
+    
+    Route::get('three',[TestController::class,'three_index']);
+});
+
+//Testing Route for HTTP Request Here.... 
+
+Route::get('add_user',[RequestController::class,'create']);
+
+Route::post('store_user',[RequestController::class,'store']);
+
+//Testing Route for Session Here.... 
+
+Route::get('set_session',[SessionController::class,'session_set']);
+Route::get('get_session',[SessionController::class,'session_get']);
+Route::get('delete_session',[SessionController::class,'delete_session']);
