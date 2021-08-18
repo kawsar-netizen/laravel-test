@@ -11,7 +11,8 @@ use App\Http\Controllers\AddressController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\SessionController;
-
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegistretionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -108,3 +109,20 @@ Route::post('store_user',[RequestController::class,'store']);
 Route::get('set_session',[SessionController::class,'session_set']);
 Route::get('get_session',[SessionController::class,'session_get']);
 Route::get('delete_session',[SessionController::class,'delete_session']);
+
+//Testing Route for Log Here.... 
+
+Route::get('log',function(){
+$message = 'Welcome to dhaka';
+Log::debug($message);
+});
+
+//Testing Route for Authentication Here.... 
+
+Route::get('login',[LoginController::class,'index']);
+
+Route::post('login',[LoginController::class,'login']);
+
+Route::get('register',[RegistretionController::class,'index']);
+
+Route::post('register',[RegistretionController::class,'store']);
