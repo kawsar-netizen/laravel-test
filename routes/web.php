@@ -13,6 +13,7 @@ use App\Http\Controllers\RequestController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegistretionController;
+use App\Http\Controllers\FileController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -126,3 +127,13 @@ Route::post('login',[LoginController::class,'login']);
 Route::get('register',[RegistretionController::class,'index']);
 
 Route::post('register',[RegistretionController::class,'store']);
+
+//Testing Route for File Upload Here.... 
+
+Route::view('file_upload','image.upload');
+
+Route::post('file_store',[FileController::class,'store']);
+
+Route::get('files',[FileController::class,'files']);
+
+Route::get('delete_file',[FileController::class,'delete']);
