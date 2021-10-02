@@ -14,7 +14,6 @@ class UserController extends Controller
     //     return $users;
     // }
 
-
     public function create(){
  
         $data = [
